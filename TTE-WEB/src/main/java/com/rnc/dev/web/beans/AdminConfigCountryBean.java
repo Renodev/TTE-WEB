@@ -1,6 +1,7 @@
 package com.rnc.dev.web.beans;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -16,8 +17,10 @@ import com.rnc.dev.web.services.CountryService;
 public class AdminConfigCountryBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private Country country;
+	
+	private List<Country> countries;
 	
 	private Continent [] continents;
 	
@@ -28,10 +31,20 @@ public class AdminConfigCountryBean implements Serializable {
 	public void initialize () {
 		country = new Country();
 		continents = Continent.values();
+		countries = countryService.findAll();
 	}
-
+	
 	public void save () {
 		countryService.save(country);
+		initialize();
+	}
+	
+	public void update (Country country) {
+		this.country = country;
+	}
+	
+	public void delete (Country country) {
+		countryService.delete(country);
 		initialize();
 	}
 
@@ -49,6 +62,14 @@ public class AdminConfigCountryBean implements Serializable {
 
 	public void setContinents(Continent[] continents) {
 		this.continents = continents;
+	}
+
+	public List<Country> getCountries() {
+		return countries;
+	}
+
+	public void setCountries(List<Country> countries) {
+		this.countries = countries;
 	}
 	
 }
