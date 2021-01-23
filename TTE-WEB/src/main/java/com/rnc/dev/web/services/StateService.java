@@ -6,6 +6,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import com.rnc.dev.web.entities.Country;
 import com.rnc.dev.web.entities.State;
 import com.rnc.dev.web.repositories.StateRepository;
 
@@ -31,6 +32,10 @@ public class StateService {
 	public void delete (State state) {
 		state.setErase(true);
 		update(state);
+	}
+	
+	public List<State> findByCountry (Country country) {
+		return stateRepository.findByCountry(country);
 	}
 	
 	public List<State> findAll () {
