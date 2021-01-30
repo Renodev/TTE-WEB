@@ -1,0 +1,57 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+				<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
+				<link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+				<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+				<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+				<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+				<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	
+</h:head> 
+<body> 
+
+
+	<h:form>
+		<div class="row">
+		
+		<div class="col-3"></div>
+		<div class="col-6">
+		
+			<div class="card">
+			  <div class="card-header" style = " text-align: center; font-weight: bold; font-size: 25px; ">
+			  Account Login
+			  </div>
+			  <div class="card-body">
+			  
+			  <span>Name</span>
+			    <h:inputText value = "#{accountBean.name}" styleClass="form-control" />
+			    <span>Password</span>
+			    <h:inputSecret value="#{accountBean.password}" styleClass="form-control"></h:inputSecret>
+			     <span>Email</span>
+			    <h:inputText value = "#{accountBean.email}" styleClass="form-control" />
+			     
+			     <div class="row mt-5" >
+			    <div class="col-6">
+			    <h:commandLink action="#{accountBean.intialize()}" styleClass="btn btn-danger form-control">Clear</h:commandLink>
+			    </div>
+			    <div class="col-6">
+			   <h:commandLink action="#{accountBean.save()}" styleClass="btn btn-success form-control">Login</h:commandLink>
+			  	
+			    </div>
+			    
+			    </div>
+			    
+		
+		 </div>
+		 </div>
+		 </div>
+		 <div class="col-3"></div>
+		 </div>
+	</h:form>
+</body> 
+</html>
