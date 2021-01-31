@@ -23,13 +23,13 @@
 			<div class="col-2 shadow bgDarkBlue" style="height: 100%; position: fixed; width: 20%;">
 				<div class="list-group rounded-0 text-light">
 				  <a href="#" class="bgDarkBlue text-light font-weight-bold p-3 text-center list-group-item list-group-item-action border-0">TTE-WEB</a>
-				  <a href="#" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
+				  <a href="#" class="bgDarkBlue text-light list-group-item list-group-item-action border-0">
 				  	<i class="fa fa-dashboard" /> Dashboard
 				  </a>
 				  <a href="#" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
 				  	<i class="fa fa-users" /> Config Account
 				  </a>
-				  <a href="#" class="bgDarkBlue text-light list-group-item list-group-item-action border-0">
+				  <a href="#" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
 				  	<i class="fa fa-globe" /> Config Country
 				  </a>
 				  <a href="#" class="bgDarkBlue text-secondary  list-group-item list-group-item-action border-0">
@@ -52,55 +52,19 @@
 			<div class="col-10" style="margin-left: 16.3%; width: 100%;">
 				<div class="row p-3 shadow">
 					<div class="col-4">
-						<span>Admin Config Country</span>
+						<span>Admin Dashboard</span>
 					</div>
-					<div class="col-8 text-right text-primary" style="font-size: 14px;">
+					<div class="col-6 text-right text-primary pt-2" style="font-size: 14px;">
 						<i class="fa fa-user" /> Administrator
 					</div>
-				</div>
-				<div class="row mt-4">
-				<div class="col-3 form-group">
-					<span>Continent</span>
-					<h:selectOneMenu value="#{adminConfigCountryBean.country.continent}" styleClass="form-control" style="height: 34px;">
-						<f:selectItems value="#{adminConfigCountryBean.continents}" var="c" itemLabel="#{c}" itemValue="#{c}"></f:selectItems>
-					</h:selectOneMenu>
-				</div>
-				<div class="col-3 form-group">
-					<span>Name</span>
-					<h:inputText value="#{adminConfigCountryBean.country.name}" styleClass="form-control" style="height: 34px;" />
-				</div>
-				<div class="col-6 form-group">
-					<span>Description</span>	
-					<h:inputText value="#{adminConfigCountryBean.country.description}" styleClass="form-control" style="height: 34px;" />
-				</div>
-				<div class="col-6 form-group"></div>
-				<div class="col-3 form-group">
-					<h:commandLink action="#{adminConfigCountryBean.initialize()}" value="Clear" styleClass="btn btn-danger form-control" style="height: 34px;" />
-				</div>
-				<div class="col-3 form-group">
-					<h:commandLink action="#{adminConfigCountryBean.save()}" value="Save" styleClass="btn btn-primary form-control" style="height: 34px;" />
-				</div>
-			</div>
-			<div class="row">
-			<ui:repeat var="c" value="#{adminConfigCountryBean.countries}">
-				<div class="col-3 mt-2 mb-2" style="font-size:12px; line-height: 8px;">
-					<div class="card border-0 shadow" style="width: 18rem;">
-					  <div class="card-body">
-					    <h5 class="card-title" style="font-size: 14px;"> #{c.name} <span class="text-secondary" style="font-size: 12px;"> (#{c.continent}) </span> </h5>
-					    <p class="card-text text-secondary"> #{c.description} </p>
-					    <h:commandLink action="#{adminConfigCountryBean.update(c)}" styleClass="btn btn-primary btn-sm mr-1" style="font-size: 12px;">
-					    	<i class="fa fa-pencil" /> Update
-					    </h:commandLink>
-					    <h:commandLink action="#{adminConfigCountryBean.delete(c)}" styleClass="btn btn-danger btn-sm ml-1" style="font-size: 12px;">
-					   		<i class="fa fa-trash-o" /> Delete
-					    </h:commandLink>
-					  </div>
+					<div class="col-2">
+						<h:commandLink action="signIn" styleClass="btn btn-danger btn-sm form-control" style="font-size: 14px;">
+							<i class="fa fa-sign-out" /> Sign Out
+						</h:commandLink>
 					</div>
 				</div>
-			</ui:repeat>
-		</div>
-		</div>
 			</div>
+		</div>
 	</h:form>
 
 </body> 

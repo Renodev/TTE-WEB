@@ -19,6 +19,10 @@ public class AccountService {
 		
 		accountrepository.save(account);
 	}
+	
+	public Account findByPhoneAndPassword (String phone, String password) {
+		return accountrepository.findByPhoneAndPassword(phone, password);
+	}
 
 
 }

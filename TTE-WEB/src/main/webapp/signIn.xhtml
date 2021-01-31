@@ -32,6 +32,9 @@
 			  </div>
 			  <div class="card-body">
 			    <h5 class="card-title">Sign In</h5>
+			    <div class="alert alert-danger" role="alert">
+				  #{signInBean.message}
+				</div>
 			    <div class="form-group">
 			    	<span>Phone</span>
 			    	<h:inputText value="#{signInBean.phone}" styleClass="form-control" />
