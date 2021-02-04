@@ -1,10 +1,12 @@
 package com.rnc.dev.web.beans;
 import java.io.Serializable;
 
+
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
 
 import com.rnc.dev.web.entities.Vehicle;
 import com.rnc.dev.web.enums.VehicleType;
@@ -16,7 +18,7 @@ public class AdminConfigVehicleBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Vehicle vehicle;
+private Vehicle vehicle;
 	
     public Vehicle getVehicle() {
 		return vehicle;
@@ -51,12 +53,10 @@ public class AdminConfigVehicleBean implements Serializable {
 		initialize();
 	}
 
-	public VehicleService getVehicleService() {
-		return vehicleService;
-	}
+	
+	
+	
 
-	public void setVehicleService(VehicleService vehicleService) {
-		this.vehicleService = vehicleService;
-	}
+	
 	
 }

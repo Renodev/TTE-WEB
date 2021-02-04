@@ -1,0 +1,133 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title>TTE-WEB</title>
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="resources/css/style.css" rel="stylesheet" type="text/css"></link>
+	<link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="font-awesome.min.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	<h:outputScript library="js" name="popper.min.js"></h:outputScript>
+</h:head> 
+<body> 
+<h:form>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2  shadow bgDarkBlue" style="height: 100%;position: fixed;" >
+			<div class="list-group rounded-0 text-light">
+				  <a href="#" class="bgDarkBlue text-light font-weight-bold p-3 text-center list-group-item list-group-item-action border-0">TTE-WEB</a>
+				  <a href="adminDashboard.xhtml" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
+				  	<i class="fa fa-dashboard" /> Dashboard
+				  </a>
+				  <a href="#" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
+				  	<i class="fa fa-users" /> Config Account
+				  </a>
+				  <a href="adminConfigCountry.xhtml" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
+				  	<i class="fa fa-globe" /> Config Country
+				  </a>
+				  <a href="adminConfigState.xhtml" class="bgDarkBlue text-secondary  list-group-item list-group-item-action border-0">
+				  	<i class="fa fa-flag" /> Config State
+				  </a>
+				  <a href="adminConfigHotel.xhtml" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
+				  	<i class="fa fa-building" /> Config Hotel
+				  </a>
+				  <a href="adminConfigVehicle.xhtml" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
+				  	<i class="fa fa-car" /> Config Vehicle
+				  </a>
+				  <a href="adminConfigTourPackage.xhtml" class="bgDarkBlue text-secondary list-group-item list-group-item-action border-0">
+				  	<i class="fa fa-tags" /> Config Package
+				  </a>
+				  <a href="adminPackageResult.xhtml" class="bgDarkBlue text-light list-group-item list-group-item-action border-0">
+				  	<i class="fa fa-list" /> Booking List
+				  </a>
+				</div>
+			
+				
+			</div>
+			<div class="col-10 " style="margin-left: 16.5%;">
+			<div class="row p-3 shadow mb-4 sticky-top" style="background-color: white;">
+					<div class="col-4">
+						<span>Booking List</span>
+					</div>
+					<div class="col-8 text-right text-primary" style="font-size: 14px;">
+						<i class="fa fa-user" /> Administrator
+					</div>
+				</div>
+				 <ui:repeat var="c" value="#{tourPackageBean.tourPackages}">
+	<div class="card mb-4" >
+  <div class="card-header" style="text-align: center; font-weight: bold; background-color: rgba(137, 148, 247, 0.8);">
+    Package Details
+  </div>
+  <div class="card-body">
+  	<div class="row">
+  	<div class="col-3 form-group">
+    <h5 class="card-title" style="font-weight: bold;">Package Name </h5>
+    <p class="card-text">#{c.name}</p>
+    <p class="card-text">Package Price: #{c.price}$</p>
+    <p class="card-text">Package Quantity: #{c.quantity}</p>
+    <p class="card-text">Numbers of days : #{c.dateFrom}</p>
+    <p class="card-text">Numbers of nights : #{c.dateTo}</p>
+    <p class="card-text">Days : #{c.days}</p>
+    <p class="card-text">Arrived Time : #{c.arriveTime}</p>
+    <p class="card-text">Terminal : #{c.terminal}</p>
+    <p class="card-text">Ph Number : #{c.phNumber}</p>
+    <p class="card-text">Email : #{c.email}</p>
+    <p class="card-text">State description : #{c.stateTo.description}</p>
+    <p class="card-text">Package description : #{c.description}</p>
+    
+    </div>
+   
+    
+    <div class="col-3 form-group">
+    <h5 class="card-title" style="font-weight: bold;" >Country Configuration</h5>
+    <p class="card-text">Continents : #{c.stateTo.country.continent}</p>
+    <p class="card-text">Country : #{c.stateTo.country.name}</p>
+    
+    <p class="card-text">State from: #{c.stateTo.name}</p>
+    <p class="card-text">State To: #{c.stateTo.name}</p>
+    <p class="card-text">State description : #{c.stateTo.description}</p>
+    </div>
+    <div class="col-3 form-group">
+    <h5 class="card-title" style="font-weight: bold;">Hotel Configuration</h5>
+    <p class="card-text">Hotel Name : #{c.hotel.name}</p>
+    <p class="card-text">Hotel Status : #{c.hotel.hotelStatus}</p>
+    <p class="card-text">Hotel Address : #{c.hotel.address}</p>
+    <p class="card-text">Hotel Description : #{c.hotel.description}</p>
+    </div>
+    <div class="col-3 form-group">
+    <h5 class="card-title" style="font-weight: bold;">Vehicle Configuration</h5>
+    <p class="card-text">Company Name : #{c.vehicle.companyName}</p>
+    <p class="card-text">Vehicle Name : #{c.vehicle.name}</p>
+    <p class="card-text">Vehicle Type : #{c.vehicle.vehicleType}</p>
+    <p class="card-text">Plate Number : #{c.vehicle.plateNumber}</p>
+    <p class="card-text">Vehicle Description : #{c.vehicle.description}</p>
+    
+    </div>
+    <div class="col-12 form-group">
+    <h:commandLink  styleClass="btn btn-primary form-control">Comfrim</h:commandLink>
+    </div>
+    </div>
+    </div>
+  </div>
+   </ui:repeat>
+			
+			
+			</div>
+				
+		</div>
+		</div>
+			
+      
+        
+       
+	</h:form>
+
+</body> 
+</html>
