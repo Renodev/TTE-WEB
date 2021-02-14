@@ -1,6 +1,7 @@
  package com.rnc.dev.web.entities;
 
 import java.io.Serializable;
+
 import java.util.List;
 
 
@@ -47,7 +48,7 @@ public class TourPackage implements Serializable {
 	@ManyToOne
 	private Vehicle vehicle;
 	
-	private long days;
+	private String days;
 	
 	private String timeFrom;
 	
@@ -57,7 +58,7 @@ public class TourPackage implements Serializable {
 	
 	private String dateTo;
 	
-	private long quantity;
+	private String quantity;
 	
 	private String price;
 	
@@ -135,11 +136,15 @@ public class TourPackage implements Serializable {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
-	public long getDays() {
+	
+	public String getDays() {
 		return days;
 	}
-	public void setDays(long days) {
+	public void setDays(String days) {
 		this.days = days;
+	}
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
 	}
 	public String getTimeFrom() {
 		return timeFrom;
@@ -147,17 +152,26 @@ public class TourPackage implements Serializable {
 	public void setTimeFrom(String timeFrom) {
 		this.timeFrom = timeFrom;
 	}
-	public String getDateFrom() {
-		return dateFrom;
-	}
-	public void setDateFrom(String dateFrom) {
-		this.dateFrom = dateFrom;
-	}
+	
 	public String getTimeTo() {
 		return timeTo;
 	}
 	public void setTimeTo(String timeTo) {
 		this.timeTo = timeTo;
+	}
+	
+	public Part getImage() {
+		return image;
+	}
+	public void setImage(Part image) {
+		this.image = image;
+	}
+	
+	public String getDateFrom() {
+		return dateFrom;
+	}
+	public void setDateFrom(String dateFrom) {
+		this.dateFrom = dateFrom;
 	}
 	public String getDateTo() {
 		return dateTo;
@@ -165,13 +179,11 @@ public class TourPackage implements Serializable {
 	public void setDateTo(String dateTo) {
 		this.dateTo = dateTo;
 	}
-	public long getQuantity() {
+	
+	
+	public String getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(long quantity) {
-		this.quantity = quantity;
-	}
-	
 	public String getPrice() {
 		return price;
 	}
@@ -209,7 +221,7 @@ public class TourPackage implements Serializable {
 		result = prime * result + ((arriveTime == null) ? 0 : arriveTime.hashCode());
 		result = prime * result + ((dateFrom == null) ? 0 : dateFrom.hashCode());
 		result = prime * result + ((dateTo == null) ? 0 : dateTo.hashCode());
-		result = prime * result + (int) (days ^ (days >>> 32));
+		result = prime * result + ((days == null) ? 0 : days.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + (erase ? 1231 : 1237);
@@ -220,7 +232,7 @@ public class TourPackage implements Serializable {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((phNumber == null) ? 0 : phNumber.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		result = prime * result + (int) (quantity ^ (quantity >>> 32));
+		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
 		result = prime * result + ((stateFrom == null) ? 0 : stateFrom.hashCode());
 		result = prime * result + ((stateTo == null) ? 0 : stateTo.hashCode());
 		result = prime * result + ((terminal == null) ? 0 : terminal.hashCode());
@@ -253,7 +265,10 @@ public class TourPackage implements Serializable {
 				return false;
 		} else if (!dateTo.equals(other.dateTo))
 			return false;
-		if (days != other.days)
+		if (days == null) {
+			if (other.days != null)
+				return false;
+		} else if (!days.equals(other.days))
 			return false;
 		if (description == null) {
 			if (other.description != null)
@@ -299,7 +314,10 @@ public class TourPackage implements Serializable {
 				return false;
 		} else if (!price.equals(other.price))
 			return false;
-		if (quantity != other.quantity)
+		if (quantity == null) {
+			if (other.quantity != null)
+				return false;
+		} else if (!quantity.equals(other.quantity))
 			return false;
 		if (stateFrom == null) {
 			if (other.stateFrom != null)
@@ -333,7 +351,6 @@ public class TourPackage implements Serializable {
 			return false;
 		return true;
 	}
-	
 	
 	
 	

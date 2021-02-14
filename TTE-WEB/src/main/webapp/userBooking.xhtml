@@ -1,0 +1,278 @@
+<!DOCTYPE html > 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title>TTE-WEB</title>
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="resources/css/style.css" rel="stylesheet" type="text/css"></link>
+	<link href="resources/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="font-awesome.min.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+	<h:outputScript library="js" name="jquery.min.js"></h:outputScript>
+	<h:outputScript library="js" name="popper.min.js"></h:outputScript>
+	<style>
+		
+		
+		
+		
+		
+            *{
+                box-sizing: border-box;
+                
+            
+        
+            }    
+            .header{
+                background:rgb(208, 205, 218);
+                text-align: center;
+                padding: 30px;
+                font-size: 40px;
+                
+
+            } 
+            .leftcolumn{
+                float: left;
+                width: 72%;
+            }
+            .rightcolumn{
+                float: left;
+                width: 28%;
+                padding-left: 20px;
+                
+            }
+            .card{
+                background-color: rgb(158, 156, 152);
+                padding: 20px;
+                margin-top: 20px;
+            }
+            
+           
+            .row:after{
+                content: "";
+                display: table;
+                clear: both;
+            }
+            
+            .nav-item:hover{
+            background-color: rgb(158, 156, 152);}
+            
+            .price
+            {
+            width: 90px;
+            height: 90px;
+            background: #ff5722;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 50%;
+            padding: 30px;
+            box-shadow: 0 0 10px 1px rgba(37,73,214,0.18);
+            position: absolute;
+            left: 20px;
+            bottom: -40px;
+            }
+            .feature-img
+            {
+            	position: relative;
+            	
+            }
+            .rating
+            {
+            	padding: 3px;
+            	float: right;
+            	background: #fff;
+            	bottom: -1px;
+            	right: 0;
+            	position: absolute;
+            }
+            .features .fa
+            {
+            	font-size: 15px;
+            	color: #ff5722;
+            }
+            .feature-details
+            {
+            	padding: 50px;
+            	text-align: justify;
+            }
+            .feature-details h3
+            {
+            	font-weight: 600;
+            	margin-top: 20px;
+            }
+            .feature-details .fa
+            {
+            	margin-right: 5px;
+            	
+            }
+            
+            
+            
+           
+
+        </style>
+		
+</h:head> 
+<body > 
+<h:form enctype="multipart/form-data">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2  shadow bgDarkBlue" style="height: 100%;position: fixed;" >
+			<div class="list-group rounded-0 text-light">
+				  <a href="view.xhtml" class="bgDarkBlue text-light font-weight-bold p-3 text-center list-group-item list-group-item-action border-0">TTE-WEB</a>
+				   <a class="align-self-center">
+                <img src="photo/FB_IMG_1608950605861.jpg" style="float: left; width: 150px; height: auto;"></img>
+          		  </a>
+          		 
+          		  
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Reno Camp</h2>
+                  
+                    <ul class="list-unstyled text-light footer-link-list mt-3">
+                        <li>
+                        
+                            <i class="fas fa-map-marker-alt fa-fw mb-2"></i>
+                            123 Consectetur at ligula 10660
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw mt-4"></i>
+                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw mt-4"></i>
+                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        </li>
+                    </ul>
+                    
+                    
+          		 
+				  
+				  
+				 
+				  
+				</div>
+			
+				
+			</div>
+			<div class="col-10  " style="margin-left: 16.5%;">
+			<div class="row p-3 shadow sticky-top" style="background-color: white;">
+			
+			
+					<div class="col-4">
+						<span>Admin Config Package</span>
+					</div>
+					<div class="col-4">
+					
+   						 <form class="d-flex">
+     					 <input type="search" placeholder="  Search Package..." aria-label="Search"/>
+      					<button class="btn btn-outline-success ml-4" type="submit">Search</button>
+   						 </form>
+  					
+					
+					</div>
+					<div class="col-4 text-right text-primary " style="font-size: 14px;">
+						<i class="fa fa-user" /> Administrator
+					</div>
+					</div>
+					<!-- start -->
+					
+			
+					
+          
+          
+          <div class="container-fluid mt-3 ">	
+							
+	
+	 
+           
+            
+            <ui:repeat var="c" value="#{tourPackageBean.tourPackages}">
+                <div class="card shodow-lg bg-white rounded" style="border-color: black;">
+                <div class="feature-box">
+            	<div class="feature-img">
+            	
+            	
+            	<IMG alt="" src="photo/bagon3.jpg" style="width: 100%; height: 350px;" />
+            	
+            	<div class="price">
+            	<p> #{c.price}$</p>
+            	</div>
+            	<div class="rating">
+            	<i class="fa fa-star" ></i>
+            	<i class="fa fa-star" ></i>
+            	<i class="fa fa-star" ></i>
+            	<i class="fa fa-star-half-o" ></i>
+            	<i class="fa fa-star-o" ></i>
+            	</div>
+            	</div>
+            	
+            	<div class="feature-details">
+            	<span><i class="fa fa-location-arrow " ></i> #{c.stateTo.name}</span>
+            	<span><i class="fa fa-sun-o pl-3" ></i> #{c.days} days</span>
+            	<span><i class="fa fa-moon-o pl-3" ></i>#{c.dateTo} nights</span>
+            	<span><i class="fa fa-clock-o pl-3" ></i> #{c.arriveTime} </span>
+            	<span><i class="fa fa-map-marker pl-3" ></i> #{c.terminal}  </span>
+            	<span><i class="fa fa-bed pl-3" > #{c.hotel.name} </i></span>
+            	<span><i class="fa fa-car pl-5 " ></i></span>
+            	<span><i class="fa fa-plane " ></i></span>
+            	<span><i class="fa fa-train" ></i></span>
+            	
+            	
+            	<h:commandLink  value="Booking Now !" styleClass="btn btn-primary float-right" />
+            	
+            		<H3>#{c.name} <span class="text-danger" style="font-size: 14px;">( From #{c.stateTo.name} state To #{c.stateTo.name} state)</span></H3>
+            	  <P >#{c.description}. Hotel name is <span style="font-weight: bold;"> #{c.hotel.name}</span> , is <span style="font-weight: bold;"> #{c.hotel.hotelStatus} hotel </span> and
+            	   hotel address is #{c.hotel.address} and #{c.hotel.description} . We support  <span style="font-weight: bold;"> #{c.vehicle.name} (#{c.vehicle.vehicleType}) </span> from #{c.vehicle.companyName} company 
+            	   and plate number is #{c.vehicle.plateNumber} and #{c.vehicle.description}. Thank you very much. <i class="fa fa-heart"></i>
+            	   
+            	  </P>
+            	  <span><i class="fa fa-phone" ></i>#{c.phNumber} </span>
+            	  <span><i class="fa fa-envelope pl-5" ></i>#{c.email}</span>
+            	  <span><i class="fa fa-info pl-5" ></i>Details</span>
+            	  <div style="margin-top: 10px;">
+            	  <span><i class="fa fa-check-square-o" ></i> 1 applicants</span>
+            	  <span><i class="fa fa-user pl-5"></i>#{c.quantity}</span>
+            	  <span style="float: right;"><i class="fa fa-clock-o pl-5" ></i>#{c.days} days left</span>
+            	  
+            	  </div>
+            	  </div>
+            	
+            </div>
+            </div>
+            </ui:repeat>
+          
+            
+      
+          
+          
+          
+	
+			</div>
+		
+		</div>
+		
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				
+	</div>
+		<!-- end -->
+		</div>
+	
+	
+	
+</h:form> 
+
+</body> 
+</html>

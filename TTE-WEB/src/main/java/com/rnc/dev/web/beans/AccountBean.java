@@ -70,6 +70,7 @@ private Account account;
 		
 		accountservice.save(account);
 		intialize();
+		login();
 	}
 
 	
